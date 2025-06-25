@@ -107,7 +107,7 @@ body{
 }
 
 #myProgressBar{
-    width: 79vw;
+    width: 80vw;
     text-align: center;
     cursor: pointer;
 }
@@ -176,10 +176,14 @@ body{
     left: 10vw;
     bottom: 0;
 }
-.songinfo img{
+#gif {
+    height: 80px;
+    width: 80px;
     opacity: 0;
-    transition: opacity 0.8s ease-in;
+    margin-right: 10px;
+    transition: opacity 0.3s ease;
 }
+
 .songinfo span{
     position: center;
     left: 80px;

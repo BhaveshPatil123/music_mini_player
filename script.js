@@ -1,4 +1,5 @@
 console.log("Welcome to Spotify");
+
 let songIndex = 0;
 let audioElement = new Audio();
 let currentTimeDisplay = document.getElementById("currentTime");
@@ -6,8 +7,12 @@ let durationDisplay = document.getElementById("duration");
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
+let muteBtn = document.getElementById("muteBtn");
 let songItems = document.querySelectorAll('.songItem');
 let songItemPlays = Array.from(document.getElementsByClassName('songItemPlay'));
+let volumeSlider = document.getElementById("volumeSlider");
+let isSongSelected = false;
+
 let songs = [
     { songName: "old song", filePath: "songs/old song.mp3", coverPath: "covers/cover1.jpg" },
     { songName: "Sanam Teri Kasam", filePath: "songs/sanam teri kasam.mp3", coverPath: "covers/cover9.jpg" },
@@ -18,55 +23,24 @@ let songs = [
     { songName: "tere ishq me nachenge", filePath: "songs/tere ishq me nachenge.mp3", coverPath: "covers/cover11.jpg" },
     { songName: "har kisi ko nahi milta", filePath: "songs/har kisi ko nahi milta.mp3", coverPath: "covers/cover12.jpg" }
 ];
+
+// Set song names and covers
 songItems.forEach((item, index) => {
+    item.querySelector('.songName').innerText = songs[index].songName;
+    item.querySelector('img').src = songs[index].coverPath;
+
     let audio = new Audio(songs[index].filePath);
-    
-    // Wait for metadata to load
     audio.addEventListener('loadedmetadata', () => {
-        let totalSec = Math.floor(audio.duration);
-        let minutes = Math.floor(totalSec / 60);
-        let seconds = totalSec % 60;
-        if (seconds < 10) seconds = "0" + seconds;
-
-        // Set formatted duration to .songDuration span
-        item.querySelector('.songDuration').innerText = `${minutes}:${seconds}`;
+        let duration = formatTime(audio.duration);
+        item.querySelector('.songDuration').innerText = duration;
     });
-});
-audioElement.addEventListener("loadedmetadata", () => {
-    let duration = audioElement.duration;
-    durationDisplay.innerText = formatTime(duration);
-});
-
-audioElement.addEventListener("timeupdate", () => {
-  let currentTime = audioElement.currentTime;
-  currentTimeDisplay.innerText = formatTime(currentTime);
 });
 
 function formatTime(time) {
-  let minutes = Math.floor(time / 60);
-  let seconds = Math.floor(time % 60);
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-  return `${minutes}:${seconds}`;
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
-
-// Song duration when loaded
-audioElement.addEventListener("loadedmetadata", () => {
-  durationDisplay.innerText = formatTime(audioElement.duration);
-});
-
-// Current time while playing
-audioElement.addEventListener("timeupdate", () => {
-  currentTimeDisplay.innerText = formatTime(audioElement.currentTime);
-});
-
-
-// Show song name & cover
-document.querySelectorAll('.songItem').forEach((el, i) => {
-    el.querySelector('img').src = songs[i].coverPath;
-    el.querySelector('.songName').innerText = songs[i].songName;
-});
 
 function resetAllPlays() {
     songItemPlays.forEach((element) => {
@@ -75,41 +49,69 @@ function resetAllPlays() {
     });
 }
 
-// Play a specific song
 function playSong(index) {
     songIndex = index;
     audioElement.src = songs[songIndex].filePath;
     audioElement.currentTime = 0;
     audioElement.play();
 
-    makeAllPlays();
+    isSongSelected = true; // ✅ activate all controls only after song play
 
-    let selectedBtn = document.getElementsByClassName('songItemPlay')[songIndex];
-    selectedBtn.classList.remove('fa-play-circle');
-    selectedBtn.classList.add('fa-pause-circle');
+    resetAllPlays();
+    songItemPlays[songIndex].classList.remove('fa-play-circle');
+    songItemPlays[songIndex].classList.add('fa-pause-circle');
 
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
     gif.style.opacity = 1;
 
-    // ✅ Bottom current song name update
     document.getElementById('currentSongName').innerText = songs[songIndex].songName;
 }
 
-let muteBtn = document.getElementById("muteBtn");
 
-muteBtn.addEventListener("click", () => {
-    if (audioElement.muted) {
-        audioElement.muted = false;
-        muteBtn.innerText = "🔊";
-    } else {
+volumeSlider.addEventListener("input", () => {
+    let volumeValue = volumeSlider.value;
+    audioElement.volume = volumeValue / 100;
+
+    if (volumeValue == 0) {
         audioElement.muted = true;
         muteBtn.innerText = "🔇";
+    } else {
+        audioElement.muted = false;
+        muteBtn.innerText = "🔊";
+    }
+});
+
+// Update time displays
+audioElement.addEventListener("timeupdate", () => {
+    currentTimeDisplay.innerText = formatTime(audioElement.currentTime);
+    myProgressBar.value = parseInt((audioElement.currentTime / audioElement.duration) * 100);
+});
+
+audioElement.addEventListener("loadedmetadata", () => {
+    durationDisplay.innerText = formatTime(audioElement.duration);
+});
+
+// Seek bar
+myProgressBar.addEventListener('change', () => {
+    audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
+});
+
+// Mute/Unmute
+muteBtn.addEventListener("click", () => {
+    audioElement.muted = !audioElement.muted;
+
+    if (audioElement.muted) {
+        muteBtn.innerText = "🔇";
+        volumeSlider.value = 0; // ✅ slider 0
+    } else {
+        muteBtn.innerText = "🔊";
+        volumeSlider.value = audioElement.volume * 100; // ✅ slider back to current volume
     }
 });
 
 
-// Song Play Button click
+// Song list buttons
 songItemPlays.forEach((element, i) => {
     element.addEventListener('click', () => {
         if (songIndex === i && !audioElement.paused) {
@@ -125,59 +127,63 @@ songItemPlays.forEach((element, i) => {
     });
 });
 
-// Master play button
+// Master play/pause button
 masterPlay.addEventListener("click", () => {
+    if (!isSongSelected) return; // 🛑 no song selected, do nothing
+
     if (audioElement.paused || audioElement.currentTime <= 0) {
-        audioElement.play();   // Resume from last paused position
+        audioElement.play();
         masterPlay.classList.remove("fa-play-circle");
         masterPlay.classList.add("fa-pause-circle");
+        gif.style.opacity = 1;
+
+        resetAllPlays();
+        songItemPlays[songIndex].classList.remove('fa-play-circle');
+        songItemPlays[songIndex].classList.add('fa-pause-circle');
     } else {
-        audioElement.pause();  // Pause & remember position
+        audioElement.pause();
         masterPlay.classList.remove("fa-pause-circle");
         masterPlay.classList.add("fa-play-circle");
+        gif.style.opacity = 0;
+
+        resetAllPlays();
     }
 });
 
-// Progress bar update
-audioElement.addEventListener('timeupdate', () => {
-    let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
-    myProgressBar.value = progress;
-});
 
-// Seek
-myProgressBar.addEventListener('change', () => {
-    audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
-});
 
 // Next song
 document.getElementById('next').addEventListener('click', () => {
-    if (songIndex >= 7) {
-        songIndex = 0;
-    } else {
-        songIndex += 1;
-    }
+    if (!isSongSelected) return; // 🛑 ignore if no song selected
+
+    songIndex = (songIndex + 1) % songs.length;
     playSong(songIndex);
 });
+
 
 // Previous song
 document.getElementById('previous').addEventListener('click', () => {
-    if (songIndex <= 0) {
-        songIndex = 7;
-    } else {
-        songIndex -= 1;
-    }
+    if (!isSongSelected) return; // 🛑 ignore if no song selected
+
+    songIndex = (songIndex - 1 + songs.length) % songs.length;
     playSong(songIndex);
 });
 
-//auto play next song
+
+// Auto next song
 audioElement.addEventListener('ended', () => {
-    if (songIndex >= 7) {
-        songIndex = 0;
-    } else {
-        songIndex += 1;
-    }
+    songIndex = (songIndex + 1) % songs.length;
     playSong(songIndex);
 });
 
+// 5 second forward
+document.getElementById('forward5').addEventListener('click', () => {
+    if (!isSongSelected) return; // Only if song selected
+    audioElement.currentTime = Math.min(audioElement.currentTime + 5, audioElement.duration);
+});
 
-
+// 5 second backward
+document.getElementById('backward5').addEventListener('click', () => {
+    if (!isSongSelected) return; // Only if song selected
+    audioElement.currentTime = Math.max(audioElement.currentTime - 5, 0);
+});
