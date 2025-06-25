@@ -1,0 +1,144 @@
+.body{
+    background-color: black;
+}
+/* About Section Styles */
+/* Navbar Styling */
+.navbar {
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1db954;
+}
+
+.navbar-right a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-right a:hover {
+  color: #1db954;
+}
+
+.logout-btn {
+  padding: 8px 15px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.logout-btn:hover {
+  background-color: #1ed760;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.about-wrapper {
+  max-width: 800px;
+  margin: 50px auto 30px; /* 👈 TOP MARGIN added here */
+  background: linear-gradient(to bottom right, #1e1e1e, #2c2c2c);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.about-title {
+  font-size: 32px;
+  color: #1db954;
+  margin-bottom: 20px;
+  border-left: 5px solid #1db954;
+  padding-left: 15px;
+}
+
+.about-description,
+.about-footer {
+  font-size: 16px;
+  line-height: 1.8;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.about-subtitle {
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: white;
+  border-bottom: 2px solid #1db954;
+  display: inline-block;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.about-list li {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.about-list li::before {
+  content: "🎵";
+  position: absolute;
+  left: 0;
+  top: 1px;
+}
+
+.about-credit {
+  font-size: 15px;
+  font-style: italic;
+  color: #aaaaaa;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .about-wrapper {
+    padding: 25px;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+  .about-subtitle {
+    font-size: 18px;
+  }
+
+  .about-description,
+  .about-footer,
+  .about-list li {
+    font-size: 15px;
+  }
+}

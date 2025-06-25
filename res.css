@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: black;
+    background: url('https://images.unsplash.com/photo-1532766798054-8297b1f04b2d?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    width: 90%;
+    max-width: 400px;
+}
+
+.register-box {
+    text-align: center;
+    color: white;
+}
+
+.register-box h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: black(red, green, blue, alpha);
+}
+
+form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+form input::placeholder {
+    color: #ccc;
+}
+
+form input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1db954;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #1ed760;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: rgb(red, green, blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

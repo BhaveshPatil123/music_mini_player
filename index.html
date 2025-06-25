@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Is The Best Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e79738a4a1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="spotify logo.png" alt="Logo" class="logo">
+            <span class="brand">Spotify</span>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <button id="logoutBtn" class="logout-button">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Song List -->
+    <div class="container">
+        <div class="Song-List">
+            <h1>BEST OF LOVE SONG</h1>
+            <div class="songItemcontainer">
+                <!-- Repeat this div for each song -->
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <div class="songItem">
+                    <img src="covers/cover1.jpg" alt="">
+                    <span class="songName">old song</span>
+                    <span class="songDuration">04:26</span>
+                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                </div>
+                <!-- Add remaining songs similarly -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player Bottom Section -->
+    <div class="bottom">
+        <div class="time-control">
+            <span id="currentTime">00:00</span>
+            <input type="range" id="myProgressBar" value="0" min="0" max="100">
+            <span id="duration">00:00</span>
+        </div>
+
+        <div class="controls">
+            <i id="previous" class="fa-solid fa-2x fa-step-backward"></i>
+            <i id="masterPlay" class="fa-solid fa-2x fa-play-circle"></i>
+            <i id="next" class="fa-solid fa-2x fa-step-forward"></i>
+        </div>
+
+        <div class="volume-control">
+            <button id="muteBtn">🔊</button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50">
+        </div>
+
+        <div class="songinfo">
+            <img src="sound-8563_256.gif" alt="1">
+            <span id="currentSongName">Let Me Love You</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            alert("You have been logged out.");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>
