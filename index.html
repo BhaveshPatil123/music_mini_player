@@ -4,18 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Is The Best Music Player</title>
+    <title>SPOTIFY THE BEST MUSIC PLAYER</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/e79738a4a1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-left">
             <img src="spotify logo.png" alt="Logo" class="logo">
             <span class="brand">Spotify</span>
         </div>
+
+        <div class="navbar-center">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="What do you want to listen to?" />
+                <button id="searchBtn"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
         <div class="navbar-right">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -23,95 +30,299 @@
         </div>
     </nav>
 
-    <!-- Song List -->
-    <div class="container">
-        <div class="Song-List">
-            <h1>BEST OF LOVE SONG</h1>
-            <div class="songItemcontainer">
-                <!-- Repeat this div for each song -->
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+
+    <div class="background-container">
+        <h1>KHANDESHI SONG</h1>
+        <div class="songListWrapper">
+            <div class="scroll-box" id="songList">
+                <div class="container">
+                    <h1>KHANDESHI SONG</h1>
+
+                    <div class="songlist">
+                        <div class="scroll-area">
+                            <!-- SONG ITEM 1 -->
+                            <div class="songItem">
+                                <img src="https://i.ytimg.com/vi/b6Wpm3pMwMk/maxresdefault.jpg" alt="cover" />
+                                <span class="songName">Lagan Ma Dekhna Rani Tula</span>
+                                <span class="songDuration">04:28</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="0"></i>
+                            </div>
+
+                            <!-- SONG ITEM 2 -->
+                            <div class="songItem">
+                                <img src="https://c.saavncdn.com/703/Mani-Sahiba-Tu-Unknown-2024-20240502144023-500x500.jpg"
+                                    alt="cover" />
+                                <span class="songName">Mani Sahiba Tu</span>
+                                <span class="songDuration">05:07</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="1"></i>
+                            </div>
+
+                            <!-- SONG ITEM 3 -->
+                            <div class="songItem">
+                                <img src="https://pendujatt.com.se/uploads/album/changli-rangani-ka-tuni-mehandi.webp"
+                                    alt="cover" />
+                                <span class="songName">Changli Rangni Ka Tuni Mehandi</span>
+                                <span class="songDuration">05:26</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="2"></i>
+                            </div>
+
+                            <!-- SONG ITEM 4 -->
+                            <div class="songItem">
+                                <img src="https://i.ytimg.com/vi/trwapxFEEAw/maxresdefault.jpg" alt="cover" />
+                                <span class="songName">O Dilbara</span>
+                                <span class="songDuration">04:55</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="3"></i>
+                            </div>
+
+                            <!-- SONG ITEM 5 -->
+                            <div class="songItem">
+                                <img src="https://cdn-images.dzcdn.net/images/cover/40c8f74fb0b1476769c1301b1480d76f/0x1900-000000-80-0-0.jpg"
+                                    alt="cover" />
+                                <span class="songName">Zim Zim Pani Ma</span>
+                                <span class="songDuration">04:37</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="4"></i>
+                            </div>
+
+                            <!-- SONG ITEM 6 -->
+                            <div class="songItem">
+                                <img src="covers\pahili-pahili-bar.jpg" alt="cover" />
+                                <span class="songName">Pahili Pahili Bar</span>
+                                <span class="songDuration">05:06</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="5"></i>
+                            </div>
+
+                            <!-- SONG ITEM 7 -->
+                            <div class="songItem">
+                                <img src="https://cdn-images.dzcdn.net/images/cover/55108b4fef8ca6f23f56494a572aee3f/1900x1900-000000-80-0-0.jpg"
+                                    alt="cover" />
+                                <span class="songName">Thod Sukh Bhetude</span>
+                                <span class="songDuration">04:14</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="6"></i>
+                            </div>
+
+                            <!-- SONG ITEM 8 -->
+                            <div class="songItem">
+                                <img src="covers\tuna khota hota sara pyar.jpg" alt="cover" />
+                                <span class="songName">Tuna Khota Hota Sara Pyar</span>
+                                <span class="songDuration">04:32</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="7"></i>
+                            </div>
+
+                            <!-- SONG ITEM 9 -->
+                            <div class="songItem">
+                                <img src="covers\radi raynu roj ratle.jpg" alt="cover" />
+                                <span class="songName">Radi Raynu Roj Ratle</span>
+                                <span class="songDuration">05:19</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="8"></i>
+                            </div>
+                            <!-- SONG ITEM 10 -->
+                            <div class="songItem">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/25/4f/a7/254fa7a2-fc25-65a1-6403-d1e8c37e5a0a/8905992094537.jpg/1200x630bb.jpg"
+                                    alt="cover" />
+                                <span class="songName">Tuna Pyar Ma Padi Gaya</span>
+                                <span class="songDuration">03:41</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="9"></i>
+                            </div>
+
+                            <!-- SONG ITEM 11 -->
+                            <div class="songItem">
+                                <img src="https://i.ytimg.com/vi/q-O_fnfOInw/maxresdefault.jpg" alt="cover" />
+                                <span class="songName">Me Tuna S Na Raja</span>
+                                <span class="songDuration">03:55</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 12 -->
+                            <div class="songItem">
+                                <img src="covers/me mari jasu.jpg" alt="cover" />
+                                <span class="songName">Me Mari Jasu</span>
+                                <span class="songDuration">04:35</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 13 -->
+                            <div class="songItem">
+                                <img src="covers/char varisna pyar.jpg" alt="cover" />
+                                <span class="songName">4 Varis Na Pyar</span>
+                                <span class="songDuration">06:11</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 14 -->
+                            <div class="songItem">
+                                <img src="covers/dil tadap tadap.jpg" alt="cover" />
+                                <span class="songName">Dil Tadap Tadap</span>
+                                <span class="songDuration">04:30</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 15 -->
+                            <div class="songItem">
+                                <img src="covers/tuna lagin na lagna nirop.jpg" alt="cover" />
+                                <span class="songName">Tuna Lagin Na Lagna Nirop</span>
+                                <span class="songDuration">05:49</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 16 -->
+                            <div class="songItem">
+                                <img src="covers/aaj tile hayad lagni.jpg" alt="cover" />
+                                <span class="songName">Aaj Tile Hayad Lagni</span>
+                                <span class="songDuration">04:23</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 17 -->
+                            <div class="songItem">
+                                <img src="covers/dil ma badal garajna.jpg" alt="cover" />
+                                <span class="songName">Dil Ma Badal Garajna</span>
+                                <span class="songDuration">04:27</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 18 -->
+                            <div class="songItem">
+                                <img src="covers/o yara me pyar tuna var karnaye.jpg" alt="cover" />
+                                <span class="songName">Aai Jindgani Tuna Havale Karnis</span>
+                                <span class="songDuration">04:47</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 19 -->
+                            <div class="songItem">
+                                <img src="covers/mana pyar adhura rahi gaya.jpg" alt="cover" />
+                                <span class="songName">Mana Pyar Adhura Rahi Gaya</span>
+                                <span class="songDuration">04:40</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 20 -->
+                            <div class="songItem">
+                                <img src="covers/bhuli gaya mana pyarla.jpg" alt="cover" />
+                                <span class="songName">Bhuli Gai Mana Pyarla</span>
+                                <span class="songDuration">04:54</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 21 -->
+                            <div class="songItem">
+                                <img src="covers/mani  rani tuna pyarma.jpg" alt="cover" />
+                                <span class="songName">Mani Rani Tuna Pyar Ma</span>
+                                <span class="songDuration">05:25</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 22 -->
+                            <div class="songItem">
+                                <img src="covers/mana pauna.jpg" alt="cover" />
+                                <span class="songName">Mana Pauna</span>
+                                <span class="songDuration">06:50</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 23 -->
+                            <div class="songItem">
+                                <img src="covers/tuni yadma dil rat din radye fv.jpg" alt="cover" />
+                                <span class="songName">Tuni Yadma Dil Rat Din Radye(Female Version)</span>
+                                <span class="songDuration">04:32</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 24 -->
+                            <div class="songItem">
+                                <img src="covers/tuni yadma dil rat din radye mv.jpg" alt="cover" />
+                                <span class="songName">Tuni Yadma Dil Rat Din Radye(male Version)</span>
+                                <span class="songDuration">04:51</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 25 -->
+                            <div class="songItem">
+                                <img src="covers/gujrat la javan s.jpg" alt="cover" />
+                                <span class="songName">Gujrat La Javan</span>
+                                <span class="songDuration">04:39</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 26 -->
+                            <div class="songItem">
+                                <img src="covers/resham na ghaghra.jpg" alt="cover" />
+                                <span class="songName">Resham Na Ghaghra</span>
+                                <span class="songDuration">04:26</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 27 -->
+                            <div class="songItem">
+                                <img src="covers/pori tuni payal.jpg" alt="cover" />
+                                <span class="songName">Pori Tuni Payal</span>
+                                <span class="songDuration">04:47</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 28 -->
+                            <div class="songItem">
+                                <img src="covers/barish na mausam ma.jpg" alt="cover" />
+                                <span class="songName">Ya Barish Na Mausam</span>
+                                <span class="songDuration">04:52</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 29 -->
+                            <div class="songItem">
+                                <img src="covers/na din dikhe na rat.jpg" alt="cover" />
+                                <span class="songName">Na Din Dikhe Na Rat</span>
+                                <span class="songDuration">04:39</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+
+                            <!-- SONG ITEM 30 -->
+                            <div class="songItem">
+                                <img src="covers/khandesh ni me pushpa.jpg" alt="cover" />
+                                <span class="songName">Khandesh Ni Me Pushpa</span>
+                                <span class="songDuration">03:11</span>
+                                <i class="far fa-play-circle songItemPlay" data-index="10"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="songItemcontainer" id="songItemContainer"></div>
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+            </div>
+        </div>
+
+        <!-- Now Playing Section (Initially Hidden) -->
+        <div class="now-playing" id="nowPlaying">
+            <img id="currentCover" src="" alt="Cover Image" />
+            <div class="controls">
+                <span id="currentSongName">Song Name</span>
+                <div class="buttons">
+                    <button id="backward5">⏪</button>
+                    <button id="previous">⏮️</button>
+                    <button id="masterPlay" class="fa fa-play-circle"></button>
+                    <button id="next">⏭️</button>
+                    <button id="forward5">⏩</button>
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                <div class="progress-container">
+                    <input type="range" id="myProgressBar" value="0" min="0" max="100" step="0.01">
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                <div class="time info">
+                    <span id="currentTime">00:00</span>
+                    <span id="duration">00:00</span>
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                <div class="volume">
+                    <button id="muteBtn">🔊</button>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="50" step="1">
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
+                <div>
+                    <img src="https://i.pinimg.com/originals/3e/fe/1c/3efe1cb845954233246f60d5d8395dd0.gif"
+                        id="soundGif" style="width: 500px; height: auto; display: none;" />
                 </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
-                </div>
-                <div class="songItem">
-                    <img src="covers/cover1.jpg" alt="">
-                    <span class="songName">old song</span>
-                    <span class="songDuration">04:26</span>
-                    <i class="fa-solid fa-2x fa-play-circle songItemPlay"></i>
-                </div>
-                <!-- Add remaining songs similarly -->
             </div>
         </div>
     </div>
-
-    <!-- Music Player Bottom Section -->
-    <div class="bottom">
-        <div class="time-control">
-            <span id="currentTime">00:00</span>
-            <input type="range" id="myProgressBar" value="0" min="0" max="100">
-            <span id="duration">00:00</span>
-        </div>
-
-        <div class="controls">
-            <i id="backward5" class="fa-solid fa-backward-step fa-2x"></i>
-            <i id="previous" class="fa-solid fa-2x fa-step-backward"></i>
-            <i id="masterPlay" class="fa-solid fa-2x fa-play-circle"></i>
-            <i id="next" class="fa-solid fa-2x fa-step-forward"></i>
-            <i id="forward5" class="fa-solid fa-forward-step fa-2x"></i>
-
-        </div>
-
-        <div class="volume-control">
-            <button id="muteBtn">🔊</button>
-            <input type="range" id="volumeSlider" min="0" max="100" value="50">
-        </div>
-
-        <div class="songinfo">
-            <img id="gif" src="sound-8563_256.gif" alt="playing animation">
-            <span id="currentSongName">Let Me Love You</span>
-        </div>
-
     </div>
 
-    <script src="script.js"></script>
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function () {
             alert("You have been logged out.");
@@ -119,5 +330,8 @@
         });
     </script>
 </body>
+
+
+<script src="script.js"></script>
 
 </html>

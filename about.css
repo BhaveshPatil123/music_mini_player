@@ -13,53 +13,96 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: #121212;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .navbar-left {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 40px;
+  height: 40px;
 }
 
 .brand {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1db954;
-}
-
-.navbar-right a {
-  margin: 0 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: white;
-  text-decoration: none;
 }
 
-.navbar-right a:hover {
-  color: #1db954;
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.logout-btn {
-  padding: 8px 15px;
-  background-color: #1db954;
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #1f1f1f;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.search-container input {
+  padding: 8px 16px;
   border: none;
-  border-radius: 20px;
+  background: none;
+  color: white;
+  outline: none;
+  width: 250px;
+  font-size: 0.9rem;
+}
+
+.search-container button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #1db954;
   color: white;
   cursor: pointer;
-  margin-left: 15px;
+  transition: background 0.3s;
 }
 
-.logout-btn:hover {
+.search-container button:hover {
   background-color: #1ed760;
 }
 
-.brand{
-    display: flex;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 1.3rem;
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
+
+.navbar-right a,
+.logout-button {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbar-right a:hover,
+.logout-button:hover {
+  color: #1db954;
+}
+
 .about-wrapper {
   max-width: 800px;
   margin: 50px auto 30px; /* 👈 TOP MARGIN added here */
